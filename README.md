@@ -11,9 +11,9 @@ Inputs have to changed as per requirements in the following variables of each fi
   data_prestep.py:
     "video_folder" : This is the folder name of the videos (ex: 0,100,200,300, etc)
     "annotation_file_path" : This is the location where the .json file of the corresponding folder is present (ex: //path//0_videos_results.json)
-    "videos_location" : This is where the videos are located (ex: //path//+folder+//*.mp4)
+    "videos_location" : This is where the videos are located  
   crop_images.py:
-    "root_video_path" : This is where the videos are located (ex: //path//+folder+//*.mp4)
+    "root_video_path" : This is where the videos are located  
     "final_save_path" : Location where the final output pickle file has to be stored.
     "tar_x" : Size of target image in x direction (ex: 256, 127 etc)
     "tar_y" : Size of target image in y direction (ex: 256, 127 etc)
