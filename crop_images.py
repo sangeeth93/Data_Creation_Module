@@ -97,18 +97,18 @@ def random_center_search_image(img,loc,sf,pair,srch_x, srch_y):
         pdb.set_trace()
 
 
-Video_Location = "/Volumes/1TB/Text_For_Autonomous_Navigation/Videos/train/100/"
-with open("prestep/100.txt",'rb') as f:
-    chk=pickle.load(f)
-
 tar_x = 86
 tar_y = 46
 srch_x = 172
 srch_y = 92
 
+root_video_path = "/Volumes/1TB/Text_For_Autonomous_Navigation/Videos/train/"
+final_save_path = "/Volumes/1TB/pb_files/train.pb"
+
 folders = ["0","100","200","300","400"]
+
 for fldr in folders:
-    Video_Location = "/Volumes/1TB/Text_For_Autonomous_Navigation/Videos/train/"+fldr+"/"
+    Video_Location = root_video_path+fldr+"/"
     with open("prestep/"+fldr+".txt",'rb') as f:
         chk=pickle.load(f)
     final_dump = []
@@ -133,7 +133,7 @@ for fldr in folders:
                 final_dump.append([tar_image,srch_image,[xc,yc,x,y]])
                 i+=1
                 if i>=1000:
-                    with open("/Volumes/1TB/pb_files/friyay.pb","ab") as x:
+                    with open(final_save_path,"ab") as x:
                         pickle.dump(final_dump,x)
                         final_dump = []
                         i=0
@@ -144,5 +144,5 @@ for fldr in folders:
                 print("no op",pair)
         except:
             pass
-    with open("/Volumes/1TB/pb_files/friyay.pb","ab") as x:
+    with open(final_save_path,"ab") as x:
         pickle.dump(final_dump,x)

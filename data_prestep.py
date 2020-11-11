@@ -49,9 +49,12 @@ def check_labels_in_frame(vid,f,s,gt):
                 tmp_lst.append([vid,f,s,b1,b2,1])
     return tmp_lst
 
-folder = "Eur_5"
-gt = load_data("/Volumes/1TB/RoadText4k/"+folder+"/"+folder+"_results.json")            
-vids =glob.glob("/Volumes/1TB/RoadText4k/"+folder+"/Videos/*.mp4")
+video_folder = "0"
+annotation_file_path = "/Volumes/1TB/Text_For_Autonomous_Navigation/Ground_Truths/Localisation/"+video_folder+"_videos_results.json"
+videos_location = "/Volumes/1TB/Text_For_Autonomous_Navigation/Videos/train/"+video_folder+"/*.mp4"
+
+gt = load_data(annotation_file_path)            
+vids =glob.glob(videos_location)
 lst=[]
 # print(vids)
 
